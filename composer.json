@@ -1,0 +1,19 @@
+{
+    "name": "kronthto/aceonline-assetencrypt",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Kronthaler",
+            "email": "kronthto@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kronthto\\AOEncrypt\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "kronthto/aceonline-archive": "dev-master"
+    }
+}
