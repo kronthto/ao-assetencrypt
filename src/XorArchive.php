@@ -2,9 +2,10 @@
 
 namespace Kronthto\AOEncrypt;
 
-use Kronthto\AOArchive\Archive;
+use Kronthto\AOArchive\Archive\Archive;
+use Kronthto\AOArchive\Archive\ArchiveEntry;
 
-class XorFile
+class XorArchive
 {
     // Main Routine
     public function transform(string $archiveData, HexXorer $xorer): string
@@ -22,14 +23,10 @@ class XorFile
 
     public function encryptArchiveEntries(Archive $archive, HexXorer $xorer): Archive
     {
-        $encrypted = clone $archive;
+        return $archive->map(function (ArchiveEntry $entry) use ($xorer): ArchiveEntry {
+            $entry->content = $xorer->doXor($entry->content);
 
-        foreach ($encrypted->entries as $key => $entry) {
-            $encryptedEntry = clone $entry;
-            $encryptedEntry->content = $xorer->doXor($entry->content);
-            $encrypted->entries[$key] = $encryptedEntry;
-        }
-
-        return $encrypted;
+            return $entry;
+        });
     }
 }

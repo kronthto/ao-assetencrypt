@@ -14,6 +14,6 @@
     },
     "require": {
         "php": ">=7.1",
-        "kronthto/aceonline-archive": "dev-master"
+        "kronthto/aceonline-archive": "dev-master#25fe40096ad23a81d2175f538d0eeaaba8d8b1a1"
     }
 }
