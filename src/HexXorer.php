@@ -7,9 +7,9 @@ class HexXorer
     /** @var string */
     protected $key;
 
-    public function __construct(string $hexkex)
+    public function __construct(string $hexkey)
     {
-        $this->key = $hexkex;
+        $this->key = $hexkey;
     }
 
     public function doXor(string $data): string
